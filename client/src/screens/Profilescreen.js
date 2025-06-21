@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tabs } from 'antd';
 import 'antd/dist/reset.css';
-import axios from './axiosconfig';
+import axios from 'axios';
 import Loader from '../component/Loader';
 import Error from '../component/Error';
 import Swal from 'sweetalert2';
