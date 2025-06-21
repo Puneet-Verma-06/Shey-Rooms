@@ -24,7 +24,7 @@ if(!localStorage.getItem('currentUser')){
       try {
         setloading(true);
 
-        const { data } = await axios.get(`/api/rooms/getroombyid/${roomid}`);
+        const { data } = await axios.get(`${process.env.REACT_APP_BURL}/api/rooms/getroombyid/${roomid}`);
         setRoom(data);
 
         // calculate total days only after dates and room data are available
@@ -58,7 +58,7 @@ if(!localStorage.getItem('currentUser')){
     };
 
     try {
-      await axios.post('/api/bookings/bookroom', bookingdetails);
+      await axios.post(`${process.env.REACT_APP_BURL}/api/bookings/bookroom`, bookingdetails);
       alert('Room booked!');
     } catch (error) {
       console.error(error);

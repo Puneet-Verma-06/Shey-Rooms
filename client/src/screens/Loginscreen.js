@@ -23,7 +23,7 @@ function Loginscreen() {
         }
         try {
             setloading(true)
-            const { data } = await axios.post('/api/users/login', user);
+            const { data } = await axios.post(`${process.env.REACT_APP_BURL}/api/users/login`, user);
             setloading(false)
 
             localStorage.setItem('currentUser', JSON.stringify(data)); // current user details are stored her.

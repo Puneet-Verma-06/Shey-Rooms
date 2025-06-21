@@ -63,7 +63,7 @@ export function MyBookings() {
     const fetchBookings = async () => {
       try {
         setloading(true);
-        const data = await axios.post('/api/bookings/getbookingsbyuserid', {
+        const data = await axios.post(`${process.env.REACT_APP_BURL}/api/bookings/getbookingsbyuserid`, {
           userid: user._id,
         });
         setBookings(data.data);
@@ -83,7 +83,7 @@ export function MyBookings() {
   async function cancleBooking(bookingid, roomid) {
     try {
       setloading(true)
-      const result = await (await axios.post('/api/bookings/cancelbooking', { bookingid, roomid })).data
+      const result = await (await axios.post(`${process.env.REACT_APP_BURL}/api/bookings/cancelbooking`, { bookingid, roomid })).data
       console.log(result)
       setloading(false)
       Swal.fire('Booking Cancelled.').then(result => {

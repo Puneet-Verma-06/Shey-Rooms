@@ -25,7 +25,7 @@ function Homescreen() {
     const fetchData = async () => {
       try {
         setloading(true)
-        const { data } = await axios.get('/api/rooms/getallrooms')
+        const { data } = await axios.get(`${process.env.REACT_APP_BURL}/api/rooms/getallrooms`)
         setrooms(data)
         setduplicaterooms(data)
         setloading(false)
@@ -130,7 +130,7 @@ function Homescreen() {
 
       <div className='row  d-flex justify-content-center flex-wrap gap-3 mt-5'>
 
-        {loading ? (<Loader></Loader>)  : (rooms.map(room => {
+        {loading ? (<Loader></Loader>)  : (rooms?.map(room => {
           return (
             <div key={room._id} className='col-md-9 mt-2'>
               <Room room={room} fromdate={fromdate} todate={todate} />

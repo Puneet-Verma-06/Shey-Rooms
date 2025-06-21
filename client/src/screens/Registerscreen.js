@@ -29,7 +29,7 @@ function Registerscreen() {
 
       try {
         setloading(true);
-        const { data } = await axios.post('/api/users/register', user);
+        const { data } = await axios.post(`${process.env.REACT_APP_BURL}/api/users/register`, user);
         setloading(false);
         setsuccess(true)
 
