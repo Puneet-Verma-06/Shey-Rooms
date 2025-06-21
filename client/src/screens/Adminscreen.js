@@ -56,7 +56,7 @@ export function Bookings() {
     const fetchBookings = async () => {
       try {
         setloading(true);
-        const response = await axios.get("/api/bookings/getallbookings");
+        const response = await axios.get(`${import.meta.env.VITE_BURL}/api/bookings/getallbookings`);
         console.log(" Bookings fetched:", response.data);
         setbookings(response.data);
         setloading(false);
@@ -120,7 +120,7 @@ export function Rooms() {
     const fetchRooms = async () => {
       try {
         setloading(true);
-        const response = await axios.get("/api/rooms/getallrooms");
+        const response = await axios.get(`${import.meta.env.VITE_BURL}/api/rooms/getallrooms`);
         console.log(" Rooms fetched:", response.data);
         setrooms(response.data);
         setloading(false);
@@ -184,7 +184,7 @@ export function Users() {
     const fetchUsers = async () => {
       try {
         setloading(true);
-        const response = await axios.get("/api/users/getallusers");
+        const response = await axios.get(`${import.meta.env.VITE_BURL}/api/users/getallusers`);
         console.log(" Users fetched:", response.data);
         setusers(response.data);
         setloading(false);
@@ -263,7 +263,7 @@ export function AddRoom() {
     }
     try {
       setloading(true)
-      const result = await (await axios.post('/api/rooms/addroom', newroom))
+      const result = await (await axios.post(`${import.meta.env.VITE_BURL}/api/rooms/addroom`, newroom))
       console.log(result.data)
       setloading(false)
       Swal.fire('Congrats', "Your Room Added Successfully.", 'Success').then(result => {
