@@ -130,7 +130,7 @@ function Homescreen() {
 
       <div className='row  d-flex justify-content-center flex-wrap gap-3 mt-5'>
 
-        {loading ? (<Loader></Loader>)  : (rooms?.map(room => {
+        {loading ? (<Loader></Loader>)  : (rooms.map(room => {
           return (
             <div key={room._id} className='col-md-9 mt-2'>
               <Room room={room} fromdate={fromdate} todate={todate} />
